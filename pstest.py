@@ -5,7 +5,7 @@ import sys
 import psutil
 
 """ 監視の間隔(sec) """
-WATCH_INTERVAL = 3
+WATCH_INTERVAL = 2
 
 def get_net_bytes():
 	""" ネットワーク使用量を返す。
@@ -36,6 +36,7 @@ if __name__ == "__main__":
 			n = (net_byte - net_byte_prev) / (1024 * WATCH_INTERVAL) \
 		)
 #		print(line)
+		# 単純な print-line ではなく、表示行を上書きするように表示。
 		sys.stdout.write('\r' + line)
 		sys.stdout.flush()
 
